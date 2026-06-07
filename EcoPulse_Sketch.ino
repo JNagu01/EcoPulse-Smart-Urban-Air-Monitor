@@ -23,7 +23,7 @@ WiFiClient client;
 
 void setup() {
   Serial.begin(115200);
-  pinMode(2, OUTPUT);
+  pinMode(LED_ALERT_PIN, OUTPUT);
   dht.begin();
   
   Serial.print("Connecting to Wi-Fi");
@@ -53,7 +53,7 @@ void loop() {
   if (simulatedAQI > AQI_THRESHOLD) {
     digitalWrite(2, HIGH); 
     alertTriggered = 1;
-    Serial.println("⚠️ ALERT: Poor Air Quality Detected!");
+    Serial.println("ALERT: Poor Air Quality Detected!");
   } else {
     digitalWrite(2, LOW); 
     alertTriggered = 0;
